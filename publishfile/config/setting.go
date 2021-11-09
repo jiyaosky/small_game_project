@@ -1,10 +1,12 @@
 package config
 
 import (
+	"database/sql"
 	"errors"
 	"strconv"
 	"strings"
 
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/urfave/cli/v2"
 	"gitlab.gg.com/game_framework/commons-go/wlog"
 )
@@ -16,6 +18,7 @@ var (
 
 	EnvHttpPort string
 
+	sqlDb *sql.DB           //数据库连接db
 
 	// 日志使用elk时kafka的地址
 	LogKafkaBrokers cli.StringSlice

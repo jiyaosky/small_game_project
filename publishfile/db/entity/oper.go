@@ -1,38 +1,18 @@
 package entity
 
-import (
-	"gitlab.gg.com/framework/common/db"
-	"time"
-)
 
-func GetAllWhiteIPs() ([]*WhiteIp, error){
-	i := make([]*WhiteIp,0)
-	err := db.DataSource().Find(&i)
-	if err != nil {
-		return nil, err
-	}else {
-		return i, nil
-	}
+//Client提交的数据
+type SqlUser struct {
+	Name    string `json:"name"`
+	Age     int    `json:"age"`
+	Address string `json:"address"`
 }
 
-// 获取白名单ip
-func GetWhiteIP(ip string) (*WhiteIp, error) {
-	i := &WhiteIp{
-		Ip: ip,
-	}
-
-	ok, err := db.DataSource().Get(i)
-	if err != nil {
-		return nil, err
-	}
-	if ok {
-		return i, nil
-	}
-	return nil, nil
+//应答体（响应client的请求）
+type SqlResponse struct {
+	Code    int         `json:"code"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
 }
 
-// 添加项目
-func InsertProject(project *Project) (int64, error) {
-	_, err := db.DataSource().Insert(project)
-	return project.Id,err
-}
+

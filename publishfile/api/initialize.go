@@ -11,4 +11,5 @@ func Register(g *gin.RouterGroup) {
 	publishFileGroup.Group("/file-api").POST("/addFile",addFile)
 	publishFileGroup.Group("/file-api").GET("/getFile",getFile)
 	publishFileGroup.Group("/file-api").DELETE("/getFile/:fileId",delFile)
+	publishFileGroup.Group("/file-api").PUT("/getFile/:fileId",putFile)
 }

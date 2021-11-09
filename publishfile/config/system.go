@@ -1,6 +1,8 @@
 package config
 
 import (
+	"database/sql"
+	"fmt"
 	"gitlab.gg.com/game_framework/commons-go/wlog"
 	"log"
 )
@@ -11,8 +13,27 @@ var (
 
 func Initialize() error {
 	initLog()
-
+	initDB()
 	return SettingInit()
+}
+
+func initDB() {
+	//1、打开数据库
+	//parseTime:时间格式转换(查询结果为时间时，是否自动解析为时间);
+	// loc=Local：MySQL的时区设置
+	sqlStr := "root:123456@tcp(127.0.0.1:3306)/testdb?charset=utf8&parseTime=true&loc=Local"
+	var err error
+	sqlDb, err = sql.Open("mysql", sqlStr)
+	if err != nil {
+		fmt.Println("数据库打开出现了问题：", err)
+		return
+	}
+	//2、 测试与数据库建立的连接（校验连接是否正确）
+	err = sqlDb.Ping()
+	if err != nil {
+		fmt.Println("数据库连接出现了问题：", err)
+		return
+	}
 }
 
 // 初始化日志

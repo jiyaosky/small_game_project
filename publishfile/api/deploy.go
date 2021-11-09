@@ -44,3 +44,15 @@ func delFile(ctx *gin.Context) {
 	})
 	return
 }
+
+func putFile(ctx *gin.Context) {
+	request := &queryOrderRequest{}
+	err := ctx.BindJSON(request)
+	if err != nil {
+		return
+	}
+	ctx.JSON(200, gin.H{
+		"message":"success",
+	})
+	return
+}
