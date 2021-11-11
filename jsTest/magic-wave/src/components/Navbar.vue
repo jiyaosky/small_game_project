@@ -20,6 +20,10 @@
         <i class="bi bi-search"></i>
         <span> 搜索</span>
       </router-link>
+      <router-link class="ms-lg-4 ms-3 nav-item" to="/new/scene">
+        <i class="bi bi-envelope"></i>
+        <span> 新增</span>
+      </router-link>
       <router-link class="ms-lg-4 ms-3 nav-item" to="/">
         <i class="bi bi-envelope"></i>
         <span> 消息</span>
@@ -34,7 +38,7 @@
     </div>
   </nav>
 
-  <!-- <div class="space"></div> -->
+  <div class="space"></div>
 </template>
 
 <style scoped>
