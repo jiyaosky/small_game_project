@@ -28,7 +28,7 @@
             /> -->
             <div>
                 <label class="form-label">请上传图片</label>
-                <input ref='uploadInput' type= "file" class="dl-none" name="picture" @change="dealfilechange"/>
+                <input ref='uploadInput' type= "file" class="dl-none" name="picture" @change="getPicture"/>
                 <button class="btn btn-primary" @click="uploadgogo">
                     <span>上传</span>
                 </button>     
@@ -50,7 +50,7 @@
                     v-model="file"
                   /> -->
                   <div>
-                    <input ref='uploadInput' type= "file" class="dl-none" name="icon" @change="dealfilechange"/>
+                    <input ref='uploadInput' type="file" class="dl-none" name="3dfile" @change="dealfilechange(this.type)"/>
                     <button class="btn btn-primary" @click="uploadgogo">
                         <span>上传</span>
                     </button>     
@@ -88,11 +88,25 @@ export default {
   data() {
     return {
       title: "",
-      pictures: "",
+      picture: {},
       type: "",
-      file: "",
+      file: [],
     };
   },
+
+  // dealfilechange(type) {
+  //   console.log(type);
+  //   if (type == "js"){
+      
+  //   }
+  //   else if (type == "gltf"){
+
+  //   }
+  //   else{
+  //     return "wrong type"
+  //   }
+
+  // },
   computed: {
     codeDisabledFlag() {
       return this.phone.length === 11 ? false : true;
@@ -100,6 +114,10 @@ export default {
 
   },
   methods: {
+      getPicture() {
+        this.file = event.target.file;
+        console.log(this.file);
+      },
   },
 };
 </script>
