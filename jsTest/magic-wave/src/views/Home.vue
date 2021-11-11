@@ -9,7 +9,8 @@
       <div class="row row-cols-xxl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1">
         <div class="col">
           <scene-wrap-col
-            cover="cover.png"
+            name="xxx"
+            cover="gun.png"
             avatar="avatar.jpg"
             title="这里写的是资源的名称"
             uploader="jy"
@@ -19,6 +20,7 @@
         </div>
         <div class="col">
           <scene-wrap-col
+            name="tank"
             cover="cover.png"
             avatar="avatar.jpg"
             title="资源2"

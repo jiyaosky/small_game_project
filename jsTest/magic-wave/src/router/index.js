@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
 import Scene from "../views/Scene.vue";
+import SceneTank from "../views/SceneTank.vue";
 import Login from "../views/Login.vue";
 import Signup from "../views/Signup.vue";
 
@@ -12,8 +13,13 @@ const routes = [
     meta: { title: "展示平台 - Imaginary Wave" },
   },
   {
-    path: "/scene",
+    path: "/scene/xxx",
     component: Scene,
+    meta: { title: "展示平台 - Imaginary Wave" },
+  },
+  {
+    path: "/scene/tank",
+    component: SceneTank,
     meta: { title: "展示平台 - Imaginary Wave" },
   },
   {

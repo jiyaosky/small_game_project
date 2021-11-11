@@ -1,5 +1,5 @@
 <template>
-  <router-link class="d-block h-100 mb-4" to="/scene">
+  <router-link class="d-block h-100 mb-4" :to="`/scene/${name}`">
     <img class="w-100 mb-2" :src="require(`../../assets/${cover}`)" />
 
     <div class="d-flex">
@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  props: ["cover", "avatar", "title", "uploader", "entry", "time"],
+  props: ["name","cover", "avatar", "title", "uploader", "entry", "time"],
 };
 </script>
 

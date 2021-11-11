@@ -76,7 +76,7 @@
 
       <div class="d-lg-block d-none rightbar">
         <scene-wrap-row
-
+          name="tank"
           cover="cover.png"
           title="xxx"
           uploader="jy"
@@ -108,7 +108,7 @@ export default {
   data() {
     return {
       modelInfo: {
-        path: "models/gltf/scene.glb",
+        path: "../models/gltf/gun/scene.gltf",
         title:
           "xxxx",
         entry: 2333,
