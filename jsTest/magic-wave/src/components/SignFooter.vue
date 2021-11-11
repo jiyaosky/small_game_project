@@ -4,7 +4,7 @@
     <p>
       <a
         class="text-secondary"
-        href="https://beian.miit.gov.cn/"
+        href="/"
         target="_blank"
         >xxx</a
       >
@@ -12,13 +12,13 @@
     <p>
       <a
         class="text-secondary"
-        href="https://space.bilibili.com/391871281/"
+        href="/"
         target="_blank"
         >关于</a
       >
       <a
         class="text-secondary ms-2"
-        href="https://space.bilibili.com/391871281/"
+        href="/"
         target="_blank"
         >联系</a
       >

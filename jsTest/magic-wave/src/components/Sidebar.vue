@@ -108,7 +108,7 @@
       <div class="text-secondary text-center mb-1">&copy; 2021 xxx</div>
       <a
         class="d-block text-secondary text-center smallest"
-        href="https://beian.miit.gov.cn/"
+        href="/"
         target="_blank"
         >xxxx</a
       >

@@ -66,8 +66,6 @@
         </div>
 
         <scene-comment
-          v-for="n in 16"
-          :key="n"
           avatar="avatar.jpg"
           uploader="ju"
           comment="xxx"
@@ -78,8 +76,7 @@
 
       <div class="d-lg-block d-none rightbar">
         <scene-wrap-row
-          v-for="n in 16"
-          :key="n"
+
           cover="cover.png"
           title="xxx"
           uploader="jy"
@@ -111,7 +108,7 @@ export default {
   data() {
     return {
       modelInfo: {
-        path: "models/gltf/scene.gltf",
+        path: "models/gltf/scene.glb",
         title:
           "xxxx",
         entry: 2333,
