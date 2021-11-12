@@ -1,0 +1,36 @@
+# 版本号一般写3
+version: '3'
+
+# 项目提供哪些服务
+services:
+  config-service:
+    # 这里的境像名称一定要用 ${imageName}, 自动化部署时会读取这个环境变量
+    image: ${imageName}
+
+    # 这里的容器名称一定要和 ${project_name}, 自动化部署时会读取这个环境变量
+    container_name: ${project_name}
+
+    ports:
+      - 12833:12833
+      - 12834:12834
+      - 8080:8080
+    environment:
+      #fildDB地址的端口和PORT端口要一致
+      FILEDB_PORT: ":6390"
+      MODE: "debug"
+      LOG_LEVEL: "debug"
+      LOG_TOPIC: "game-log"
+
+
+      HTTP_PORT: "12833:12833"
+      GRPC_PORT: "12834:12834"
+      UI_PORT: 8080
+
+      SERVICE_NAME: "pb.config"
+      ELK_ADDRESS: "10.10.243.53:9092,10.10.243.54:9092,10.10.243.55:9092"
+      ETCD_ADDRESS: "10.10.243.73:2379"
+      IS_PRODUCT: "false"
+
+    volumes:
+      - ./log:/bin/log
+      - ./var:/bin/var
