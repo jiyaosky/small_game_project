@@ -1,14 +1,19 @@
 # small_game_project
-小demo
+1.切换到jsTest文件夹
 
-请安装nodejs
+cd .\jsTest\magic-wave\
 
-在jsTest/magic-wave/中
+2.安装脚手架
 
 npm i -g @vue/cli
 
+（如果报错请无事掉）继续下一步
+
+3.安装必要的库
+
 npm i vue-router bootstrap three postprocessing
 
-在magic-wave中使用npm run serve即可启动
+4.启动项目
 
-vue3.0+three.js
+npm run serve
+
