@@ -20,41 +20,21 @@
               label="请输入标题"
               placeholder="enter your title"
             />
-            <!-- <app-input
-              v-model="pictures"
-              label="请上传图片"
-              password="true"
-              placeholder="upload your pictures"
-            /> -->
             <div>
                 <label class="form-label">请上传图片</label>
-                <input ref='uploadInput' type= "file" class="dl-none" name="picture" @change="getPicture"/>
-                <button class="btn btn-primary" @click="uploadgogo">
-                    <span>上传</span>
-                </button>     
+                <input type="file" class="dl-none" name="picture" @change="getPicture"/>
             </div> 
-            <select v-model="type" name="type">
+            <select class="mt-4" v-model="type" name="type">
               <option value="">请选择3d类型</option>
               <option value="js">three.js</option>
               <option value="gltf">gltf模型</option>
             </select>
 
-            <div class="mb-3">
+            <div class="mt-2 mb-3">
               <label class="form-label">请上传相应文件</label>
               <div class="row align-items-center">
                 <div class="col-10 pe-0">
-                  <!-- <input
-                    type="text"
-                    class="form-control"
-                    placeholder="enter verification code"
-                    v-model="file"
-                  /> -->
-                  <div>
-                    <input ref='uploadInput' type="file" class="dl-none" name="3dfile" @change="dealfilechange(this.type)"/>
-                    <button class="btn btn-primary" @click="uploadgogo">
-                        <span>上传</span>
-                    </button>     
-                  </div> 
+                    <input type="file" class="dl-none" name="3dfile" @change="getFiles"/>
                 </div>
               </div>
             </div>
@@ -63,6 +43,7 @@
                 class="btn btn-dark"
                 :disabled="signUpFlag"
                 @click="signUp"
+                to="/" 
               >
                 上传
               </button>
@@ -78,11 +59,12 @@
 
 <script>
 import AppInput from "../components/form/AppInput.vue";
-// import SignFooter from "../components/SignFooter.vue";
+import Home from "../views/Home.vue";
+var home = Home
 
 export default {
   components: {
-    AppInput,
+    AppInput
     // SignFooter,
   },
   data() {
@@ -93,31 +75,58 @@ export default {
       file: [],
     };
   },
-
-  // dealfilechange(type) {
-  //   console.log(type);
-  //   if (type == "js"){
-      
-  //   }
-  //   else if (type == "gltf"){
-
-  //   }
-  //   else{
-  //     return "wrong type"
-  //   }
-
-  // },
   computed: {
-    codeDisabledFlag() {
-      return this.phone.length === 11 ? false : true;
-    },
-
   },
   methods: {
-      getPicture() {
-        this.file = event.target.file;
-        console.log(this.file);
+      getPicture(e) {
+        var files = e.target.files || e.dataTransfer.files;
+        console.log(files)
+        if (!files.length)
+          return;
+        this.picture = files[0];
+        console.log(this.picture)
+        this.savePicture(this.picture)
       },
+      savePicture(pic) {
+        var reader = new FileReader();
+        reader.readAsDataURL(pic);
+        console.log(pic.name);
+
+        var data = new Blob([pic],{type:"charset=UTF-8"})
+        var downloadUrl = window.URL.createObjectURL(data);
+        console.log(downloadUrl);
+        var anchor = document.createElement("a");
+        anchor.href = downloadUrl;
+        anchor.download = pic.name;
+        anchor.click();
+        window.URL.revokeObjectURL(data);
+      },      
+      getFiles(e) {
+        console.log(this.type)
+        var files = e.target.files || e.dataTransfer.files;
+        console.log(files)
+        if (!files.length)
+          return;
+        this.file = files[0];
+        console.log(this.file)
+        this.getFiles(this.file)
+      },
+      savefiles(file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        var data = new Blob([file],{type:"charset=UTF-8"})
+        var downloadUrl = window.URL.createObjectURL(data);
+        console.log(downloadUrl);
+        var anchor = document.createElement("a");
+        anchor.href = downloadUrl;
+        anchor.download = file.name;
+        anchor.click();
+        window.URL.revokeObjectURL(data);
+      },
+      signUp(){
+        const cache = localStorage.getItem("list") 
+        home.methods.addDiv(cache)
+      }
   },
 };
 </script>
