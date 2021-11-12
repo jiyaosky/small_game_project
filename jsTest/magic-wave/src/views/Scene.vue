@@ -4,6 +4,7 @@
   <div class="my-4 mx-xl-4 mx-sm-3 mx-2">
     <div class="d-lg-flex c-row">
       <div class="leftbar">
+        <!-- <scene-wrap-col @listenEvent="fn"></scene-wrap-col> -->
         <scene-comp :path="modelInfo.path" />
 
         <h5 class="mt-md-3 mt-2">{{ modelInfo.title }}</h5>
@@ -95,6 +96,7 @@ import SceneWrapRow from "../components/scene/SceneWrapRow.vue";
 import SceneIcon from "../components/scene/SceneIcon.vue";
 import SceneAvatar from "../components/scene/SceneAvatar.vue";
 import SceneComment from "../components/scene/SceneComment.vue";
+// import SceneWrapCol from "../components/scene/SceneWrapCol.vue";
 
 export default {
   components: {
@@ -104,6 +106,7 @@ export default {
     SceneIcon,
     SceneAvatar,
     SceneComment,
+    // SceneWrapCol
   },
   data() {
     return {
@@ -130,6 +133,12 @@ export default {
       },
     };
   },
+  methods: {
+    fn(param) {
+      this.modelInfo.path = param
+      console.log(param)
+    }
+  }
 };
 </script>
 

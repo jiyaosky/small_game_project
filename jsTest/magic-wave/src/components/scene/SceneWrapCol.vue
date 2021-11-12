@@ -34,7 +34,13 @@
 
 <script>
 export default {
-  props: ["name","cover", "avatar", "title", "uploader", "entry", "time"],
+  props: ["path" ,"name" ,"cover", "avatar", "title", "uploader", "entry", "time"],
+  methods: {
+    fn() {
+      console.log(this.$props.path)
+      this.$emit('listenEvent',this.$props.path)
+    }
+  }
 };
 </script>
 

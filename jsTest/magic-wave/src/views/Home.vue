@@ -9,6 +9,7 @@
       <div class="row row-cols-xxl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1">
         <div class="col" v-for="scene in list" v-bind:key="scene">
           <scene-wrap-col
+            :path="scene.path"
             :name="scene.name"
             :cover="scene.cover"
             :avatar="scene.avatar"
@@ -39,6 +40,7 @@ export default {
     return {
       list: [
         {
+          path:"../models/gltf/gun/scene.gltf",
           name:"xxx",
           cover:"gun.png",
           avatar:"avatar.jpg",
@@ -48,6 +50,7 @@ export default {
           time:"1天前"
         },
         {
+          path:"/",
           name:"tank",
           cover:"cover.png",
           avatar:"avatar.jpg",
@@ -77,6 +80,7 @@ export default {
       const listCache = JSON.parse(cache)
       console.log(listCache)
       listCache.push({
+        path:"../models/gltf/gun/scene.gltf",
         name:"tank",
         cover:"cover.png",
         avatar:"avatar.jpg",
