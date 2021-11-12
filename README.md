@@ -1,4 +1,6 @@
 # small_game_project
+启动项目前请安装nodejs
+
 1.切换到jsTest文件夹
 
 cd .\jsTest\magic-wave\
